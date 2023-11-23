@@ -24,9 +24,10 @@ df.head()
 # %%
 path = 'data\data_dms_20180101.csv'
 df_raw_data = pd.read_csv(path)
-
+df_raw_data.head()
 
 # %%
 query_ship_modes = 'SELECT * FROM dbo.shipModes'
-df_raw_data = pd.read_sql(query_ship_modes, engine)
-# %%
+df_ship_modes = pd.read_sql(query_ship_modes, conn)
+df_ship_modes.head()
+#%%
