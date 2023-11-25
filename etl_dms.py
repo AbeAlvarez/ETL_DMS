@@ -30,4 +30,22 @@ df_raw_data.head()
 query_ship_modes = 'SELECT * FROM dbo.shipModes'
 df_ship_modes = pd.read_sql(query_ship_modes, conn)
 df_ship_modes.head()
-#%%
+
+### df_raw_data[['Order_ID', 'Ship_Mode']]
+
+
+# %%
+print(df_raw_data[['Order_ID', 'Ship_Mode']].head())
+
+# %%
+print(df_ship_modes.head())
+
+
+# %%
+df_unido = pd.merge(
+    df_raw_data[['Order_ID', 'Ship_Mode']],
+    df_ship_modes,
+    left_on='Ship_Mode',  
+    right_on='shipModeName',  
+    how='left'
+)
